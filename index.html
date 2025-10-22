@@ -8,9 +8,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    
+     <!-- 
 
-    <!-- Precarga de la carta desde Google Drive -->
-    <link rel="preload" as="image" href="https://drive.google.com/uc?export=view&id=1PzRW3Zo1wISdDTo4n55oidO2BAvbeR-z">
+Contáctame:
+
+    * Invitame un café
+ https://buymeacoffee.com/alexx.dev
+
+    * Portafolio Web
+ https://alexxdev.vercel.app
+
+    * Sigueme en tiktok
+ https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc 
+ 
+    *Canal de WhatsApp
+ https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
+
+ 
+ +52 1 55 6628 1018
+
+-->
 
     <style>
         * {
@@ -19,6 +37,7 @@
             box-sizing: border-box;
             font-family: 'Fredoka One', cursive, 'Segoe UI', sans-serif;
             -webkit-tap-highlight-color: transparent;
+
         }
 
         body {
@@ -263,7 +282,7 @@
         </div>
         
         <div class="game-over" id="gameOver">
-            <img src="https://i.postimg.cc/wBn05JNJ/carta.png" alt="Una carta de cumpleaños" id="birthdayCard" class="birthday-card">
+            <img src="carta.png" alt="Una carta de cumpleaños" id="birthdayCard" class="birthday-card">
             <div class="result" id="result"></div>
             <button class="restart-btn" id="restartBtn">Jugar de Nuevo</button>
         </div>
@@ -384,4 +403,67 @@
                     setTimeout(() => {
                         resultElement.style.display = 'none';
                         birthdayCard.style.display = 'block';
-                        gameOverScreen.style.display =
+                        gameOverScreen.style.display = 'flex';
+                    }, 900);
+                } else {
+                    birthdayCard.style.display = 'none';
+                    resultElement.textContent = '¡Se acabó el tiempo! 😢';
+                    resultElement.style.display = 'block';
+                    gameOverScreen.style.display = 'flex';
+                }
+            }
+            
+            function inflateBalloon() {
+                if (!gameActive) return;
+
+                pumpSound.currentTime = 0;
+                pumpSound.play();
+
+                balloonSize += 0.25;
+                clickCount++;
+                
+                updateBalloon();
+                clickCountElement.textContent = `Toques: ${clickCount}`;
+
+                balloon.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    balloon.style.transform = 'scale(1)';
+                }, 100);
+            }
+
+            pump.addEventListener('click', inflateBalloon);
+            restartBtn.addEventListener('click', startGame);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    inflateBalloon();
+                }
+            });
+
+            personalizeGreeting();
+            startGame();
+        });
+    </script>
+</body>
+
+ <!-- 
+
+Contáctame:
+
+    * Invitame un café
+ https://buymeacoffee.com/alexx.dev
+
+    * Portafolio Web
+ https://alexxdev.vercel.app
+
+    * Sigueme en tiktok
+ https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc 
+ 
+    *Canal de WhatsApp
+ https://whatsapp.com/channel/0029VazQEXq90x2vIdNkrH1p
+
+ 
+ +52 1 55 6628 1018
+
+-->
+</html>
