@@ -261,7 +261,7 @@ Contáctame:
 
     <div class="game-container">
         <div class="header">
-            <h1>¡Happy Birthday Amorcito!</h1>
+            <h1 id="birthday-title">¡Happy Birthday!</h1>
             <div class="timer" id="timer">10</div>
         </div>
         
@@ -298,6 +298,7 @@ Contáctame:
             const birthdayCard = document.getElementById('birthdayCard');
             const restartBtn = document.getElementById('restartBtn');
             const clickCountElement = document.getElementById('clickCount');
+            const birthdayTitle = document.getElementById('birthday-title');
             const balloonContainer = document.getElementById('balloonContainer');
             
             const pumpSound = document.getElementById('pumpSound');
@@ -309,6 +310,12 @@ Contáctame:
             let clickCount = 0;
             let gameActive = false;
             let countdown;
+            
+            function personalizeGreeting() {
+                const name = prompt("¿Quién es el festejado/a?", "Amigo/a");
+                if (name) {
+                    birthdayTitle.textContent = `¡Happy Birthday, ${name}!`;
+                }
             }
 
             function startGame() {
@@ -433,6 +440,7 @@ Contáctame:
                 }
             });
 
+            personalizeGreeting();
             startGame();
         });
     </script>
